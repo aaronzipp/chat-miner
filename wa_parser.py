@@ -81,4 +81,5 @@ def get_df_from_chatlog(filepath, dateformat='mm/dd/yy',
     df['weekday'] = df['datetime'].dt.day_name()
     df['words'] = df['message'].apply(lambda s: len(s.split(' ')))
     df['letters'] = df['message'].apply(lambda s: len(s))
-    return df[["weekday", "datetime", "author", "message", "words", "letters"]]
+    df["hour"] = df["datetime"].dt.hour
+    return df[["weekday", "datetime", "author", "message", "words", "letters", "hour"]]
