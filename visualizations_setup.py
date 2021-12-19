@@ -43,11 +43,13 @@ class EmojiCloud:
 
     def initialize_wordcloud(self):
         return WordCloud(font_path=self.font_path,
-                               width=2000,
-                               height=1000,
-                               background_color='white',
-                               random_state=42,
-                               collocations=False)
+                            width=2000,
+                            height=1000,
+                            background_color='white',
+                            colormap = 'flare',
+                            random_state=42,
+                            collocations=False,
+                            max_words=30)
 
     def color_func(self, word, font_size, position, orientation, random_state=None,
                    **kwargs):
@@ -68,5 +70,5 @@ class EmojiCloud:
         wc = self.word_cloud.generate_from_frequencies(emoji_frequencies)
 
         plt.figure(figsize=(20,10))
-        plt.imshow(wc.recolor(color_func=self.color_func, random_state=42))
+        plt.imshow(wc) #.recolor(color_func=self.color_func, random_state=42))
         plt.axis("off")
