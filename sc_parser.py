@@ -6,8 +6,8 @@ MESSAGE_FLAG = "TEXT"
 TIMEZONE_SHIFT = pd.Timedelta('01:00:00')
 
 OWN_NAME = "Aaron Zipp"
-PERSON = "SC name"
-PERSON_NAME = "Real name"
+PERSON = "kristinvonm"
+PERSON_NAME = "Kristin von Milczewski"
 
 def get_df_from_chatlog(filepath = FILE_PATH, *, own_name = OWN_NAME,
                         person = PERSON, person_name = PERSON_NAME,
@@ -28,6 +28,7 @@ def get_df_from_chatlog(filepath = FILE_PATH, *, own_name = OWN_NAME,
 
     df = df_rec.append(df_sent, ignore_index = True)
     df.rename(columns = {"Created": "datetime", "Text": "message"}, inplace = True)
+    df["datetime"] = df["datetime"].apply(lambda x: x.split("UTC")[0])
     df["datetime"] = pd.to_datetime(df["datetime"], infer_datetime_format = True) + timezone_shift
     df.sort_values(by = "datetime", inplace = True, ignore_index = True)
     df['weekday'] = df['datetime'].dt.day_name()
