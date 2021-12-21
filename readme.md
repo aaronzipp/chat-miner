@@ -1,10 +1,16 @@
 ## Getting your data
 To export a chat:
+### WhatsApp
  - Go to the app
  - Go to Settings/Chats/Chat History
  - Tap *Export chat*
  - Select the chat you want to export
 
+### Snapchat
+  - Go to the app
+  - Go to Settings/My Data
+  - Tap *Submit request*
+  - You get an email from which you can download the data
 ---
 
  ## Necessary Adjustments
