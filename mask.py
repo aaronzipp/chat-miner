@@ -7,17 +7,18 @@ import matplotlib.pyplot as plt
 
 from wordcloud import WordCloud, STOPWORDS
 
-def create_masked(text, name, *,  background_color = "white",
-                   max_words = 400,
-                   contour_width = 3,
-                   contour_color = 'red',
-                   colormap = 'Reds',
-                   max_font_size = 60,
-                   min_font_size = 8,
-                   min_word_length = 3,
-                   random_state = 23):
+def create_masked(text, name, *, mask_path = r"./masks/heart.png",
+                    background_color = "white",
+                    max_words = 400,
+                    contour_width = 3,
+                    contour_color = 'red',
+                    colormap = 'Reds',
+                    max_font_size = 60,
+                    min_font_size = 8,
+                    min_word_length = 3,
+                    random_state = 23):
 
-    mask = np.array(Image.open(r"./masks/heart.png"))
+    mask = np.array(Image.open(mask_path))
 
     stopwords = set(STOPWORDS)
     stopwords = STOPWORDS.update(['media', 'omitted', 'missed', 'voice', 'call', 'http', 'https'])
