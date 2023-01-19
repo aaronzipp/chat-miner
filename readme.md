@@ -1,3 +1,5 @@
+![Codefactor](https://www.codefactor.io/repository/github/aaronzipp/chat-miner/badge)
+
 ## Getting your data
 To export a chat:
 ### WhatsApp
